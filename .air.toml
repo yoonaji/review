@@ -1,0 +1,55 @@
+# 기본 설정
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/main ."
+bin = "tmp/main"
+
+# 80번 포트를 사용하도록 실행 시 인수를 지정
+full_bin = "APP_ENV=dev APP_USER=air ./tmp/main 80"
+
+# 감시할 확장자 설정
+include_ext = ["go", "tpl", "tmpl", "html"]
+
+# 감시에서 제외할 디렉토리
+exclude_dir = ["assets", "tmp", "vendor", "frontend/node_modules", "_tools", "cert", "testutil"]
+
+# 감시에서 제외할 파일 패턴
+exclude_regex = ["_test.go"]
+
+# 변경되지 않은 파일 제외 여부
+exclude_unchanged = true
+
+# 심볼릭 링크 따라가기 여부
+follow_symlink = true
+
+# 로그 파일 지정
+log = "air.log"
+
+# 변경 감지 후 재시작 지연(ms)
+delay = 1000
+
+# 빌드 오류 발생 시 실행 중지
+stop_on_error = true
+
+# 인터럽트 시그널 전송 여부
+send_interrupt = false
+
+# 종료 지연 시간(ms)
+kill_delay = 500
+
+# 로그 설정
+[log]
+time = false
+
+# 색상 설정
+[color]
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"
+
+# 기타 설정
+[misc]
+clean_on_exit = true
