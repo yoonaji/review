@@ -9,6 +9,8 @@ RUN go mod download
 COPY . .
 RUN go build -trimpath -ldflags "-w -s" -o app
 
+
+
 # Final stage
 FROM debian:bullseye-slim AS deploy
 RUN apt-get update
